@@ -7,13 +7,28 @@ function AddressBook() {
 
 AddressBook.prototype.addContact = function(contact) { //AddressBook.prototype.addContact() method takes a Contact object as an argument.
   contact.id = this.assignId();
-  this.contactCollection[contact.id] = contact; //we are assigning a new value (the contents of a Contact object) to a new key (firstName)
+  this.contactCollection[contact.id] = contact; 
 };
 
 AddressBook.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
 };
+
+AddressBook.prototype.findContact = function(id) {
+  if (this.contactCollection[id] != undefined ) {
+    return this.contactCollection[id];
+  }
+  return false;
+}
+
+AddressBook.prototype.deleteContact = function(id) {
+  if (this.contactCollection[id] === undefined) {
+    return false;
+  }
+  delete this.contactCollection[id];
+  return true;
+}
 
 //Business Logic for Contacts
 
@@ -28,3 +43,4 @@ function Contact(firstName, lastName, phoneNumber)
 Contact.prototype.fullName = function() {
 return this.firstName + " " +this.lastName;
 };
+
