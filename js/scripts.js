@@ -40,6 +40,13 @@ function Contact(firstName, lastName, phoneNumber)
   // this.fullName = function () {return this.firstName + " " +this.lastName;}
 }
 
+Contact.prototype.update = function(newLastName, oldLastName) {
+  if (oldLastName === contact.lastName ) {
+    contact.lastName = newLastName;
+  }
+  else false;
+};
+
 Contact.prototype.fullName = function() {
 return this.firstName + " " +this.lastName;
 };
